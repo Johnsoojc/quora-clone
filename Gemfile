@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
 
+
 # Ruby Version
 # ruby "2.2.1"
+#adding bcrypt gem for user authentication(login logout signup)
+gem 'bcrypt', '~> 3.1.7'
 
 # Adding Sinatra Drivers
 gem 'sinatra'
