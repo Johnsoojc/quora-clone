@@ -1,0 +1,25 @@
+<h1> Update your profile information </h1>
+
+
+<form method=post action="/users/<%=@user.id%>">
+  <input name="_method" type="hidden" value="patch">
+  <input type=text placeholder="Name" name="user[name]" value="<%=@user.name%>">
+  <input type=email placeholder="Email" name="user[email]" value= "<%=@user.email %>">
+  <input type=password placeholder="Password" name="user[password]">
+  <input type=submit value="Save Changes">
+</form>
+
+<form method=get action=/profile>
+    <input type=submit value="Back to your profile">
+</form>
+
+
+<form method=post action=/logout>
+    <input type=submit value="Logout">
+</form>
+
+<!-- params ={user:{name: "Xx", email: "xx@"}} -->
+
+<!-- <form action=/userupdate>
+
+</form> -->

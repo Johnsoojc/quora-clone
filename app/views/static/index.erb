@@ -1,1 +1,24 @@
-<h1>John's quora</h1>
+<h1>Johns quora</h1>
+
+
+<% if !logged_in? %>
+
+ <%= flash %>
+    <% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+  <!-- <a href="#" class="close">&times;</a> -->
+  </div>
+  <% end %>
+
+<form action="/gotosignup">
+    <input type="submit" value="SIGN UP NOW" />
+</form>
+
+<h2>Login</h2>
+<form method=post action="/login">
+    <input type=text placeholder="Email" name="user[email]"><br>
+    <input type=password placeholder="Password" name="user[password]"></br>
+    <input type=submit value="Login">
+</form>
+<% end %>

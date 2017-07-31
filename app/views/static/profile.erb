@@ -1,0 +1,11 @@
+<p> Welcome to your profile <h1><%= @user.name %></h1></p>
+
+
+<ul>
+<li><%= @user.id %></li>
+<li><%= @user.email %></li>
+</ul>
+
+<form method =get action="/users/<%= @user.id %>/edit">
+    <input type="submit" value="UPDATE NOW" />
+</form>
