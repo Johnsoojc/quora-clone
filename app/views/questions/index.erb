@@ -1,0 +1,47 @@
+<h1>Question that posted: </h1>
+
+<table>
+<th>Question</th>
+<th>Posted by:</th>
+<th>Total of votes</th>
+
+<% @questions.each do |q| %>
+<tr>
+<td><%= q.title %></td>
+<td><%= (User.find(q.user_id)).name  %></td>
+<td id="abc<%=q.id%>"><%= total_q_votes(q) %></td>
+
+<td>
+    <form class="questionupvote" method=post action="/questions/<%= q.id %>/upvote">
+    <input type=submit value="Upvote"></form>
+</td>
+<td>
+    <form class="questiondownvote" method=post action="/questions/<%= q.id %>/downvote">
+    <input type=submit value="Downvote"></form>
+</td>
+    <% author_id = q.user_id %>
+    <% if author_id == current_user.id %>
+<td>
+    <form method=get action="/questions/<%= q.id %>/edit">
+    <input type=submit value="Edit Ques"></form>
+</td>
+<td>
+    <form method=post action="/questions/<%= q.id %>">
+      <input type="hidden" name="_method" value="delete">
+      <input type=submit value="Delete This Questions">
+    </form>
+</td>
+    <% end %>
+
+<td>
+    <form method=get action="/questions/<%= q.id %>">
+    <input type=submit value="View Answer"></form>
+</td>
+<% end %>
+
+
+</table>
+
+<form method=get action=/profile>
+    <input type=submit value="Back to your profile">
+</form>

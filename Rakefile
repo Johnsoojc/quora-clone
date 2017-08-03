@@ -187,7 +187,7 @@ Database
 	$ rake db:create
 
 # to create migration file 'db/migrate/<timestamp>_<filename>.rb'
-	$ rake generate:migration NAME=<filename>
+		$ rake generate:migration NAME=<filename>
 # REMINDER: be careful with ActiveRecord naming convention!
 
 # to perform migration

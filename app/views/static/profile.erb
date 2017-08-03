@@ -6,6 +6,21 @@
 <li><%= @user.email %></li>
 </ul>
 
+<% if current_user == @user %>
 <form method =get action="/users/<%= @user.id %>/edit">
     <input type="submit" value="UPDATE NOW" />
+</form>
+<% end %>
+
+<form method =post action="/users/<%= @user.id %>/questions">
+  <input type="text" placeholder="Post a question" name="question[title]"/>
+  <input type="submit" value ="Post Your Ques"/>
+</form>
+
+<form method=get action=/questions>
+    <input type=submit value="See all the questions!">
+</form>
+
+<form method=post action=/logout>
+    <input type=submit value="Logout">
 </form>

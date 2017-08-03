@@ -1,24 +1,30 @@
-<h1>Johns quora</h1>
-
+<html>
+<body background="/img/quora_background.png">
+<div>
+<img style="width:300px;height:100px;margin-bottom:60px" src="/img/quora_logo.png" alt="Back to homepage">
 
 <% if !logged_in? %>
 
- <%= flash %>
+  <!--  <%= flash %>
     <% flash.keys.each do |type| %>
   <div data-alert class="flash <%= type %> alert-box radius">
     <%= flash[type] %>
-  <!-- <a href="#" class="close">&times;</a> -->
+<a href="#" class="close">&times;</a>
   </div>
-  <% end %>
+  <% end %>-->
 
-<form action="/gotosignup">
-    <input type="submit" value="SIGN UP NOW" />
-</form>
+<h2 style="text-align:center;">Login</h2>
 
-<h2>Login</h2>
 <form method=post action="/login">
-    <input type=text placeholder="Email" name="user[email]"><br>
-    <input type=password placeholder="Password" name="user[password]"></br>
+    Email: <input type=text  name="user[email]"><br>
+    Password: <input type=password name="user[password]"></br>
     <input type=submit value="Login">
 </form>
+
+<form action="/gotosign up">
+    <input type="submit" value="SIGN UP NOW" />
+</form>
+</div>
 <% end %>
+</body>
+</html>

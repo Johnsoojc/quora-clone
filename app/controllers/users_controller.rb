@@ -3,33 +3,32 @@ require 'byebug'
 enable :sessions
 register Sinatra::Flash
 
-
+#UPDATE-EDIT
 get '/users/:id/edit' do
   @user = User.find(params[:id])
-  erb :"static/update"
+  erb :"static/edit"
 end
-
+# UPDATE -UPDATE
 patch '/users/:id' do
   @user = User.find(params[:id])
   if @user.update(params[:user])
-# if user[:name] = user[:name]
-#   @user.save
     erb :'static/profile'
   else
-    erb :"static/update"
+    erb :"static/edit"
   end
 end
 
+#READ-SHOW
 get '/profile' do
   @user = User.find(session[:user_id])
   erb :"static/profile"
 end
 
-
+#CREATE-NEW
 get '/gotosignup' do
   erb :"static/signup"
 end
-
+#CREATE-CREATE
 post '/signup' do
 user = User.new(params[:user])
   if user.save
