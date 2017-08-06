@@ -50,21 +50,23 @@ post '/questions/:id/upvote' do
   if !question_vote.nil?
     if question_vote.vote_count == 1
       question_vote.destroy
-
+      @messsage = ""
     else
       question_vote.update(vote_count: 1)
+      @message = "sucessfully re-voted"
+
     end
   else
     @question_votes = QuestionVote.new(user_id: current_user.id, question_id: params[:id], vote_count: 1)
     @question_votes.save
-
+    @message = "sucessful voted"
   end
   @questions = Question.all
   result = []
   result << total_q_votes(@question)
   result << @question.id
+  result << @message
   return result.to_json
-  # erb :'questions/index'
 end
 
 

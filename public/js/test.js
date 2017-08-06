@@ -13,6 +13,8 @@ $(document).ready(function(){
       dataType: "JSON",
       success: function(jagenwarning){
       $("#abc"+jagenwarning[1]).html(jagenwarning[0])
+      $("#def"+jagenwarning[1]).html(jagenwarning[2])
+
       }
     })
   })
@@ -24,6 +26,7 @@ $(document).ready(function(){
       dataType: "JSON",
       success: function(jasonwarning){
         $("#abc"+jasonwarning[1]).html(jasonwarning[0])
+
       }
     })
   })

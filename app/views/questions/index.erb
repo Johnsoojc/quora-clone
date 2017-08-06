@@ -4,12 +4,14 @@
 <th>Question</th>
 <th>Posted by:</th>
 <th>Total of votes</th>
+<th>Status of voting </th>
 
 <% @questions.each do |q| %>
 <tr>
 <td><%= q.title %></td>
 <td><%= (User.find(q.user_id)).name  %></td>
 <td id="abc<%=q.id%>"><%= total_q_votes(q) %></td>
+<td id="def<%=q.id%>"><%= @message %><td>
 
 <td>
     <form class="questionupvote" method=post action="/questions/<%= q.id %>/upvote">
